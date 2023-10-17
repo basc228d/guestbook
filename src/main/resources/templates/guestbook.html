@@ -32,6 +32,9 @@
 						</form>
 						<h4 th:text="${index} + '. ' + ${entry.name}" class="card-title">1. Posting</h4>
 					</div>
+					<div class="card-header">
+						<blockquote class="entrytext" th:text="${entry.mail}"></blockquote>
+					</div>
 					<div class="card-body">
 						<blockquote class="entrytext" th:text="${entry.text}"></blockquote>
 					</div>
@@ -47,6 +50,10 @@
 				<label for="name" th:text="#{guestbook.form.name}">Name</label><br /> 
 				<input class="form-control" type="text" th:field="*{name}" th:errorclass="is-invalid" required="required" />
 				<div th:if="${#fields.hasErrors('name')}" class="invalid-feedback" th:text="#{guestbook.form.name.required}">Please provide a name.</div> 
+			</div>
+			<div>
+				<label for="mail">E-mail</label><br />
+				<input class="form-control" type="text" th:field="*{mail}" />
 			</div>
 			<div class="form-group">
 				<label for="text" th:text="#{guestbook.form.text}">Text</label><br /> 
